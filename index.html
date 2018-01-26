@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="wnameth=device-wnameth, initial-scale=1">
+    <title>INMOBILIARIA JAIRO & COMPANY</title>
+
+	<link href="bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+	<link type="text/css" rel="stylesheet" href="css/estilos.css"/>
+	<link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+    	
+	<style>
+	#logo{width:25px;height:25px;}
+	#frmAltaCliente,#frmBajaCliente,#frmAltaVenta,#frmBajaVenta,#frmAltaInmueble,#frmBajaInmueble,#frmAltaVisita,#frmBajaVisita,#frmAltaEmpleado,#frmBajaEmpleado,#frmAltaAlquiler,#frmBajaAlquiler,#frmModInmueble{display:none;}
+	</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img id="logo" src="img/logo.png"></a>
+      <a class="navbar-brand" href="#">INMOBILIARIA JAIRO & COMPANY</a>
+    </div>
+    <ul class="nav navbar-nav">
+	<li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">CLIENTE
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+		<li id="btnAltaCliente"><a class="btn btn-actividad2">Alta de cliente</a></li>
+		<li id="btnBajaCliente"><a class="btn btn-actividad2">Baja de cliente</a></li>
+		<li id="btnModCliente"><a class="btn btn-actividad2">Mod. de cliente</a></li>
+		<li id="btnListadoClientes"><a class="btn btn-actividad2">Listado de clientes</a></li>
+	  </ul>
+	  
+      </li>
+	  
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EMPLEADO
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+		<li id="btnAltaEmpleado"><a class="btn btn-actividad2">Alta de empleado</a></li>
+		<li id="btnBajaEmpleado"><a class="btn btn-actividad2">Baja de empleado</a></li>
+		<li id="btnModEmpleado"><a class="btn btn-actividad2">Mod. de empleado</a></li>
+		<li id="btnListadoAgentes"><a class="btn btn-actividad2">Listado de agentes</a></li>
+		<li id="btnListadoJefesSede"><a class="btn btn-actividad2">Listado de jefes sede</a></li>
+	  </ul>
+	  
+      </li>
+	  
+	  <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">INMUEBLE
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+		<li id="btnAltaInmueble"><a class="btn btn-actividad2">Alta de inmueble</a></li>
+		<li id="btnBajaInmueble"><a class="btn btn-actividad2">Baja de inmueble</a></li>
+		<li id="btnModInmueble"><a class="btn btn-actividad2">Mod. de inmueble</a></li>
+		<li id="btnListadoInmuebles"><a class="btn btn-actividad2">Listado de inmuebles</a></li>
+	  </ul>
+      </li>
+	  
+	   <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">VISITA
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+		<li id="btnAltaVisita"><a class="btn btn-actividad2">Alta de visita</a></li>
+		<li id="btnBajaVisita"><a class="btn btn-actividad2">Baja de visita</a></li>
+		<li id="btnModVisita"><a class="btn btn-actividad2">Mod. de visita</a></li>
+		<li id="btnListadoVisitas"><a class="btn btn-actividad2">Listado de visitas</a></li>
+	  </ul>
+	  
+      </li>
+	  
+	  <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">VENTAS
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+		<li id="btnAltaVenta"><a class="btn btn-actividad2">Alta de venta</a></li>
+		<li id="btnBajaVenta"><a class="btn btn-actividad2">Baja de venta</a></li>
+		<li id="btnModVenta"><a class="btn btn-actividad2">Mod. de venta</a></li>
+		<li id="btnListadoVentas"><a class="btn btn-actividad2">Listado de ventas</a></li>
+	  </ul>
+      </li>
+	  
+	  <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">ALQUILER
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+		<li id="btnAltaAlquiler"><a class="btn btn-actividad2">Alta de alquiler</a></li>
+		<li id="btnBajaAlquiler"><a class="btn btn-actividad2">Baja de alquiler</a></li>
+		<li id="btnModAlquiler"><a class="btn btn-actividad2">Mod. de alquiler</a></li>
+		<li id="btnListadoAlquileres"><a class="btn btn-actividad2">Listado de alquileres</a></li>
+	  </ul>
+      </li>      
+    </ul>
+  </div>
+</nav>
+
+
+								<!--FORMULARIOS-->
+<!---------------------------ALTA DE CLIENTE--------------------------->
+<form class="form-horizontal" name="frmAltaCliente" id="frmAltaCliente">
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtDni">DNI</label>  
+  <div class="col-md-4">
+  <input id="txtDni" name="txtDni" placeholder="Introduzca el DNI" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtNombre">Nombre</label>  
+  <div class="col-md-4">
+  <input id="txtNombre" name="txtNombre" placeholder="Introduzca el nombre" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtApellido">Apellidos</label>  
+  <div class="col-md-4">
+  <input id="txtApellido" name="txtApellido" placeholder="Introduzca el apellido" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtTelefono">Teléfono</label>  
+  <div class="col-md-4">
+  <input id="txtTelefono" name="txtTelefono" placeholder="Introduzca el telefono" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtNumPropiedades">Nº Propiedades</label>  
+  <div class="col-md-4">
+  <input id="txtNumPropiedades" name="txtNumPropiedades" placeholder="Introduzca el número de propiedades" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtDireccion">Dirección</label>  
+  <div class="col-md-4">
+  <input id="txtDireccion" name="txtDireccion" placeholder="Introduzca la dirección" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtLocalidad">Localidad</label>  
+  <div class="col-md-4">
+  <input id="txtLocalidad" name="txtLocalidad" placeholder="Introduzca la localidad" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtCodigoPostal">Código Postal</label>  
+  <div class="col-md-4">
+  <input id="txtCodigoPostal" name="txtCodigoPostal" placeholder="Introduzca el código postal" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarAltaCliente"></label>
+  <div class="col-md-8">
+    <input type="button" id="btnAceptarAltaCliente" name="btnAceptarAltaCliente" class="btn btn-success" value="Aceptar"/>
+    <input type="reset" id="btnBorrarAltaCliente" name="btnBorrarAltaCliente" class="btn btn-danger" value="Borrar"/>
+  </div>
+</div>
+
+</form>
+<!------------------------------------------FIN DE ALTA DE CLIENTE------------------------------------>
+
+<!---------------------------BAJA DE CLIENTE--------------------------->
+<form class="form-horizontal" name="frmBajaCliente" id="frmBajaCliente">
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtDni">DNI</label>  
+  <div class="col-md-4">
+  <input id="txtDni" name="txtDni" placeholder="Introduzca el DNI" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarBajaCliente"></label>
+  <div class="col-md-8">
+    <input type="button" id="btnAceptarBajaCliente" name="btnAceptarBajaCliente" class="btn btn-success" value="Aceptar"/>
+    <input type="reset" id="btnBorrarBajaCliente" name="btnBorrarBajaCliente" class="btn btn-danger" value="Borrar"/>
+  </div>
+</div>
+
+</form>
+<!------------------------------------------FIN DE BAJA DE CLIENTE------------------------------------>
+
+<!----------------------------ALTA DE EMPLEADO------------------------>
+
+			<form name="frmAltaEmpleado" id="frmAltaEmpleado">
+			<div class="form-group">
+				<label class="control-label">DNI Empleado: </label><br>
+				<input type="text" name="txtDniEmpleado" class="form-control input-md"/><br>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Apellidos:</label><br>
+				<input type="text" name="txtApellidosEmpleado" class="form-control input-md"/><br>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Nombre:</label><br>
+				<input type="text" name="txtNombreEmpleado" class="form-control input-md"/><br>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Telefono:</label><br>
+				<input type="text" name="txtTelefonoEmpleado" class="form-control input-md"/><br>
+			</div>
+			<div class="form-group">	
+				<input type="radio" name="tipoEmpleado" value="agente" id="radioAgente" class="form-check-input"/> Agente <input type="radio" name="tipoEmpleado" value="jefeSede" id="radioJefeSede" class="form-check-input"/> Jefe Sede<br><br>
+			</div>	
+			
+			<div id="divAgente">
+			<div class="form-group">
+				<label class="control-label">Total de ventas: </label>  <input type="number" name="txtTotalVentas" class="form-control"  style="width:50px;" min="0" value="0"/><br><br>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Total de alquileres: </label>  <input type="number" name="txtTotalAlquileres" class="form-control"  style="width:50px;" min="0" value="0"/><br><br>
+			</div>	
+			<div class="form-group">
+				<label class="control-label">Total de operaciones: </label>  <input type="number" name="txtTotalOperaciones" class="form-control"  style="width:50px;" min="0" value="0"/><br><br>
+			</div>	
+				</div>
+				
+			<div id="divJefe">
+			<div class="form-group">
+				<label class="control-label">Funcion: </label>  <input type="text" name="txtFuncion" class="form-control"/><br><br>
+			</div>
+			</div>
+			
+				<input type="button" name="btnAceptarAltaEmpleado" value="Aceptar" id="aceptarAltaEmpleado" class="btn btn-success" />
+				<input type="reset" name="btnReset" value="Limpiar" class="btn btn-danger"/>
+			</form>
+			
+<!------------------------------------------FIN DE ALTA DE EMPLEADO------------------------------------>
+
+<!---------------------------BAJA DE EMPLEADO--------------------------->	
+			<form name="frmBajaEmpleado" id="frmBajaEmpleado">
+			<div class="form-group">
+				<label for="comboEmpleados" class="control-label">Empleados</label>
+				<select name="comboEmpleadosBaja" id="comboEmpleadosBaja" class="form-control input-md"></select>
+			</div>
+			
+
+				<input type="button" name="btnAceptarBajaEmpleado" value="Aceptar" id="aceptarBajaEmpleado" class="btn btn-success" />
+				<input type="reset" name="btnReset" value="Limpiar" class="btn btn-danger"/>
+			</form>
+		
+			
+
+<!------------------------------------------FIN DE BAJA DE EMPLEADO------------------------------------>
+
+
+<!---------------------------ALTA DE VENTA--------------------------->
+<form class="form-horizontal" name="frmAltaVenta" id="frmAltaVenta">
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdInmueble">ID Inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtIdInmueble" name="txtIdInmueble" placeholder="Introduzca el ID del inmueble" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtDniCliente">DNI Cliente</label>  
+  <div class="col-md-4">
+  <input id="txtDniCliente" name="txtDniCliente" placeholder="Introduzca el DNI del cliente" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtFecha">Fecha</label>  
+  <div class="col-md-4">
+  <input id="txtFecha" name="txtFecha" placeholder="Introduzca la fecha" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtPrecio">Precio</label>  
+  <div class="col-md-4">
+  <input id="txtPrecio" name="txtPrecio" placeholder="Introduzca el precio" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtEstado">Estado</label>  
+  <div class="col-md-4">
+  <input id="txtEstado" name="txtEstado" placeholder="Introduzca el estado" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarAltaVenta"></label>
+  <div class="col-md-8">
+    <input type="button" value="Aceptar" id="btnAceptarAltaVenta" name="btnAceptarAltaVenta" class="btn btn-success"/>
+    <input type="reset" value="Borrar" id="btnBorrarAltaVenta" name="btnBorrarAltaVenta" class="btn btn-danger"/>
+  </div>
+</div>
+
+</form>
+<!------------------------------------------FIN DE ALTA DE VENTA------------------------------------>
+
+<!---------------------------BAJA DE VENTA--------------------------->
+<form class="form-horizontal" name="frmBajaVenta" id="frmBajaVenta">
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdInmueble">ID Inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtIdInmueble" name="txtIdInmueble" placeholder="Introduzca el ID del inmueble" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarBajaVenta"></label>
+  <div class="col-md-8">
+    <input type="button" id="btnAceptarBajaVenta" name="btnAceptarBajaVenta" class="btn btn-success" value="Aceptar"/>
+    <input type="reset" id="btnBorrarBajaVenta" name="btnBorrarBajaVenta" class="btn btn-danger"value="Borrar"/>
+  </div>
+</div>
+
+</form>
+<!------------------------------------------FIN DE BAJA DE VENTA------------------------------------>
+
+<!---------------------------ALTA DE INMUEBLE--------------------------->
+<form class="form-horizontal" name="frmAltaInmueble" id="frmAltaInmueble">
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdInmueble">ID Inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtIdInmueble" name="txtIdInmueble" placeholder="Introduzca el ID del inmueble" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtTipo">Tipo de inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtTipo" name="txtTipo" placeholder="Introduzca el tipo de inmueble" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtPrecioAlq">Precio alquiler</label>  
+  <div class="col-md-4">
+  <input id="txtPrecioAlq" name="txtPrecioAlq" placeholder="Introduzca el precio de alquiler" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtPrecioVent">Precio Venta</label>  
+  <div class="col-md-4">
+  <input id="txtPrecioVent" name="txtPrecioVent" placeholder="Introduzca el precio de venta" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtEstado">Estado del inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtEstado" name="txtEstado" placeholder="Introduzca el estado del inmueble" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtMetros">Metros cuadrados</label>  
+  <div class="col-md-4">
+  <input id="txtEstado" name="txtMetros" placeholder="Introduzca los metros cuadrados" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtDireccion">Dirección</label>  
+  <div class="col-md-4">
+  <input id="txtDireccion" name="txtDireccion" placeholder="Introduzca la dirección" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtLocalidad">Localidad</label>  
+  <div class="col-md-4">
+  <input id="txtLocalidad" name="txtLocalidad" placeholder="Introduzca la localidad" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtCodigoPostal">Código Postal</label>  
+  <div class="col-md-4">
+  <input id="txtCodigoPostal" name="txtCodigoPostal" placeholder="código postal" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtDescripcion">Descripcion del inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtDescripcion" name="txtDescripcion" placeholder="Introduzca la descripción del inmueble" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarAltaInmueble"></label>
+  <div class="col-md-8">
+    <input type="button" id="btnAceptarAltaInmueble" name="btnAceptarAltaInmueble" class="btn btn-success" value="Aceptar"/>
+    <input type="reset" id="btnBorrarAltaInmueble" name="btnBorrarAltaInmueble" class="btn btn-danger"value="Borrar"/>
+  </div>
+</div>
+
+</form>
+<!------------------------------------------FIN DE ALTA DE INMUEBLE------------------------------------>
+
+<!---------------------------BAJA DE INMUEBLE--------------------------->
+	<form class="form-horizontal" name="frmBajaInmueble" id="frmBajaInmueble">
+	<fieldset>
+
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="txtIdInmueble">Id inmueble</label>  
+	  <div class="col-md-4">
+	  <input id="txtIdInmueble" name="txtIdInmueble" placeholder="id del inmueble" class="form-control input-md" type="text"> 
+	  </div>
+	</div>
+
+
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="btnAceptarBajaInmueble"></label>
+	  <div class="col-md-8">
+		<input type="button" id="btnAceptarBajaInmueble" name="btnAceptarBajaInmueble" class="btn btn-success" value="Aceptar"/>
+		<input type="reset" id="btnBorrarBajaInmueble" name="btnBorrarBajaInmueble" class="btn btn-danger" value="Borrar"/>
+	  </div>
+	</div>
+
+	</fieldset>
+	</form>
+
+<!------------------------------------------FIN DE BAJA DE INMUEBLE------------------------------------>
+
+<!------------------------------------------MODIFICAR INMUELBE------------------------------------>
+<form class="form-horizontal" name="frmModInmueble" id="frmModInmueble">
+	<fieldset>
+
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="txtIdInmueble">Id del inmueble a modificar</label>  
+	  <div class="col-md-4">
+	  <input id="txtIdInmueble" name="txtIdInmueble" placeholder="id del inmueble" class="form-control input-md" type="text"> 
+	  </div>
+	</div>
+	
+	<div class="form-group">
+  <label class="col-md-4 control-label" for="txtTipo">Tipo de inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtTipo" name="txtTipo" placeholder="Introduzca el tipo de inmueble" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtPrecioAlq">Precio alquiler</label>  
+  <div class="col-md-4">
+  <input id="txtPrecioAlq" name="txtPrecioAlq" placeholder="Introduzca el precio de alquiler" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtPrecioVent">Precio Venta</label>  
+  <div class="col-md-4">
+  <input id="txtPrecioVent" name="txtPrecioVent" placeholder="Introduzca el precio de venta" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtEstado">Estado del inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtEstado" name="txtEstado" placeholder="Introduzca el estado del inmueble" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="btnAceptarModInmueble"></label>
+	  <div class="col-md-8">
+		<input type="button" id="btnAceptarModInmueble" name="btnAceptarModInmueble" class="btn btn-success"value="Modificar"/>
+	  </div>
+	</div>
+
+	</fieldset>
+	</form>
+
+<!------------------------------------------FIN DE MODIFICAR INMUEBLE------------------------------------>
+<!---------------------------ALTA DE VISITA--------------------------->
+<form class="form-horizontal" name="frmAltaVisita" id="frmAltaVisita">
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdVisita">ID Visita</label>  
+  <div class="col-md-4">
+  <input id="txtIdVisita" name="txtIdVisita" placeholder="Introduzca el id de visita" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdCliVisita">ID Cliente</label>  
+  <div class="col-md-4">
+  <input id="txtIdCliVisita" name="txtIdCliVisita" placeholder="Introduzca el id del cliente" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdInmueble">ID Inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtIdInmueble" name="txtIdInmueble" placeholder="Introduzca el ID del inmueble" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtFecha">Fecha</label>  
+  <div class="col-md-4">
+  <input id="txtFecha" name="txtFecha" placeholder="Fecha" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtHora">Hora</label>  
+  <div class="col-md-4">
+  <input id="txtHora" name="txtHora" placeholder="Hora" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtEstado">Estado del inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtEstado" name="txtEstado" placeholder="Introduzca el estado del inmueble" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtValoracion">Valoracion del inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtValoracion" name="txtValoracion" placeholder="Introduzca la valoracion del inmueble" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarAltaVisita"></label>
+  <div class="col-md-8">
+    <input type="button" id="btnAceptarAltaVisita" name="btnAceptarAltaVisita" class="btn btn-success"  value="Aceptar">
+    <input type="reset" id="btnBorrarAltaVisita" name="btnBorrarAltaVisita" class="btn btn-danger"value="Borrar"/>
+  </div>
+</div>
+
+</form>
+<!------------------------------------------FIN DE ALTA DE VISITA------------------------------------>
+
+<!---------------------------BAJA DE VISITA--------------------------->
+<form class="form-horizontal" name="frmBajaVisita" id="frmBajaVisita">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdVisita">id Visita</label>  
+  <div class="col-md-4">
+  <input id="txtIdVisita" name="txtIdVisita" placeholder="id de la visita" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarBajaVisita"></label>
+  <div class="col-md-8">
+    <input type="button" id="btnAceptarBajaVisita" name="btnAceptarBajaVisita" class="btn btn-success" value="Aceptar"/>
+    <input type="reset" id="btnBorrarBajaVisita" name="btnBorrarBajaVisita" class="btn btn-danger"/ value="Borrar"/>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<!------------------------------------------FIN DE BAJA DE VISITA------------------------------------>
+
+<!---------------------------ALTA DE ALQUILER--------------------------->
+<form class="form-horizontal" name="frmAltaAlquiler" id="frmAltaAlquiler">
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="txtIdCliente">Id cliente</label>  
+			  <div class="col-md-4">
+			  <input id="txtIdCliente" name="txtIdCliente" placeholder="Id del cliente" class="form-control input-md" type="text"> 
+			  </div>
+			</div>
+
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="txtIdInmuebleAlquiler">Id inmueble</label>  
+			  <div class="col-md-4">
+			  <input id="txtIdInmuebleAlquiler" name="txtIdInmuebleAlquiler" placeholder="Introduzca el id del inmueble" class="form-control input-md" type="text">
+				
+			  </div>
+			</div>
+
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="txtFechaInicio">Fecha inicio</label>  
+			  <div class="col-md-4">
+			  <input id="txtFechaInicio" name="txtFechaInicio" placeholder="Fecha de inicio alquiler" class="form-control input-md" type="text">
+				
+			  </div>
+			</div>
+
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="txtFechaFin">Fecha fin</label>  
+			  <div class="col-md-4">
+			  <input id="txtFechaFin" name="txtFechaFin" placeholder="Fecha fin del alquiler" class="form-control input-md" type="text">
+				
+			  </div>
+			</div>
+
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="txtPrecioMes">Precio al mes</label>  
+			  <div class="col-md-4">
+			  <input id="txtPrecioMes" name="txtPrecioMes" placeholder="Precio al mes" class="form-control input-md" type="text">
+				
+			  </div>
+			</div>
+
+			<div class="form-group">
+			  <label class="col-md-4 control-label" for="txtEstadoAlquiler">Estado alquiler</label>  
+			  <div class="col-md-4">
+			  <input id="txtEstadoAlquiler" name="txtEstadoAlquiler" placeholder="Estado" class="form-control input-md" type="text">		
+			  </div>	
+			</div>
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="btnAceptarAlquiler"></label>
+		  <div class="col-md-8">
+			<input type="button" id="btnAceptarAltaAlquiler" name="btnAceptarAltaAlquiler" class="btn btn-success" value="Aceptar"/>
+			<input type="reset" id="btnBorrarAltaAlquiler" name="btnBorrarAltaAlquiler" class="btn btn-danger" value="Borrar"/>
+		  </div>
+		</div>
+			</form>
+
+<!------------------------------------------FIN DE ALTA DE ALQUILER------------------------------------>
+
+<!---------------------------BAJA DE ALQUILER--------------------------->
+<form class="form-horizontal" name="frmBajaAlquiler" id="frmBajaAlquiler">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdClienteAlquiler">Id Cliente</label>  
+  <div class="col-md-4">
+  <input id="txtIdClienteAlquiler" name="txtIdClienteAlquiler" placeholder="Id cliente" class="form-control input-md" type="text"> 
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtIdInmuebleAlquiler">Id Inmueble</label>  
+  <div class="col-md-4">
+  <input id="txtIdInmuebleAlquiler" name="txtIdInmuebleAlquiler" placeholder="Id inmueble" class="form-control input-md" type="text"> 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btnAceptarAlquiler"></label>
+  <div class="col-md-8">
+    <input type="button" id="btnAceptarBajaAlquiler" name="btnAceptarBajaAlquiler" class="btn btn-success "value="Aceptar"/>
+    <input type="reset" id="btnBorrarBajaAlquiler" name="btnBorrarBajaAlquiler" class="btn btn-danger"value="Borrar"/>
+  </div>
+</div>
+
+</fieldset>
+</form>
+<!------------------------------------------FIN DE BAJA DE ALQUILER------------------------------------>
+<div id="capa"></div>
+
+<script src="jquery/jquery-1.11.0.min.js"></script>
+<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
+<script src="jquery.validate.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/js/objeto.js"></script>
+<script type="text/javascript" src="js/js/principal.js"></script>
+
+</body>
+</html>
